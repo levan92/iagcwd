@@ -28,6 +28,15 @@ In the AGCWD algorithm, a weighting distribution function is used to smooth the 
 - `agcwd_alpha_bright`: As explained above (Default: 0.25)
 - `agcwd_alpha_dimmed`: As explained above (Default: 0.75)
 
+## What's new in this fork?
+- reorganise folders to make it easier to integrate into other pipelines
+- "objectified" the original code
+    - exposed adjustable parameters
+    - commented away some unused lines  
+
+## TODO
+- interface for manual "parameter search"
+
 <br/>
 
 # [Original README] Improved Adaptive Gamma Correction

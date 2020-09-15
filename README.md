@@ -20,21 +20,25 @@ python3 run.py --input example_images
 
 By default you don't need to define any arguments in the `AdaptiveGamma` class. But you can adjust them if you want:
 
-- `thresh`: threshold to determin image is bright or dim (Default: 0.3)
+- `thresh`: threshold to determine if image is bright or dim (Default: 0.3)
 - `exp_in`: expected global average intensity (Default: 112)
 
-In the AGCWD algorithm, a weighting distribution function is used to smooth the primary histogram. $\alpha$ is an adjusted parameter that affects the smoothing, the smaller, the smoother the histogram. In IAGCWD, bright and dim images receive different treatments and their $\alpha$ values differs. See paper for more info.
+In the AGCWD algorithm, a weighting distribution function is used to smooth the primary histogram. $\alpha$ is an adjusted parameter that affects the smoothing, the smaller, the smoother the histogram. In IAGCWD, bright and dim images receive different treatments and their $\alpha$ values differs.
 
 - `agcwd_alpha_bright`: As explained above (Default: 0.25)
 - `agcwd_alpha_dimmed`: As explained above (Default: 0.75)
 
+See paper for more info on the parameters.
+
 ## What's new in this fork?
+
 - reorganise folders to make it easier to integrate into other pipelines
 - "objectified" the original code
-    - exposed adjustable parameters
-    - commented away some unused lines  
+  - exposed adjustable parameters
+  - commented away some unused lines  
 
 ## TODO
+
 - interface for manual "parameter search"
 
 <br/>

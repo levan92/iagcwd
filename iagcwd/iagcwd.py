@@ -45,6 +45,22 @@ class AdaptiveGamma(object):
         self.agcwd_alpha_bright = agcwd_alpha_bright
         self.agcwd_alpha_dimmed = agcwd_alpha_dimmed
 
+    def update(self, thresh=None, exp_in = None, agcwd_alpha_bright=None, agcwd_alpha_dimmed=None):
+        if thresh:
+            # Determine whether image is bright or dimmed
+            self.threshold = thresh
+            print(f'[AdaptiveGamma] Threshold updated to {self.threshold}.')
+        if exp_in:
+            # Expected global average intensity
+            self.exp_in = exp_in
+            print(f'[AdaptiveGamma] Expected Avrg Intensity updated to {self.exp_in}.')
+        if agcwd_alpha_bright:
+            self.agcwd_alpha_bright = agcwd_alpha_bright
+            print(f'[AdaptiveGamma] Alpha (bright) updated to {self.agcwd_alpha_bright}.')
+        if agcwd_alpha_dimmed:
+            self.agcwd_alpha_dimmed = agcwd_alpha_dimmed
+            print(f'[AdaptiveGamma] Alpha (dimmed) updated to {self.agcwd_alpha_dimmed}.')
+
     def _process_bright(self, img):
         img_negative = 255 - img
         agcwd = image_agcwd(img_negative, a=self.agcwd_alpha_bright, truncated_cdf=False)

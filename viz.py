@@ -69,13 +69,21 @@ cv2.createTrackbar(agcwd_alpha_dimmed_trackbar_name,
 total_dur = 0
 dur_count = 0
 while True:
+    img_in = img.copy()
     tic = time.perf_counter()
-    img_out = gamma_adjuster.adjust(img)
+    img_out, status = gamma_adjuster.adjust(img_in)
     toc = time.perf_counter()
     total_dur += toc - tic
     dur_count += 1
 
-    img_show = np.concatenate((img, img_out), axis=1)
+    # img_show = np.concatenate((img, img_out), axis=1)
+    if status == 'dim':
+        msg = 'Too Dim'
+    elif status == 'bright':
+        msg = 'Too Bright'
+    else:
+        msg = 'Not Adjusted'
+    cv2.putText(img_out, msg, (10,10+24), cv2.FONT_HERSHEY_DUPLEX, 1.0, (255,255,0), 2)
 
     cv2.imshow(cv2_winname, img_out)
     key = cv2.waitKey(1)

@@ -81,17 +81,20 @@ class AdaptiveGamma(object):
         
         # Process image for gamma correction
         if t < -self.threshold: # Dimmed Image
-            print ("Dim Image")
+            # print ("Dim Image")
             result = self._process_dimmed(Y)
             YCrCb[:,:,0] = result
             img_output = cv2.cvtColor(YCrCb,cv2.COLOR_YCrCb2BGR)
+            return img_output, "dim"
         elif t > self.threshold:
-            print ("Bright Image") # Bright Image
+            # print ("Bright Image") # Bright Image
             result = self._process_bright(Y)
             YCrCb[:,:,0] = result
             img_output = cv2.cvtColor(YCrCb,cv2.COLOR_YCrCb2BGR)
+            return img_output, "bright"
         else:
-            print("Not adjusted")
+            # print("Not adjusted")
             img_output = img
+            return img_output, ""
 
-        return img_output
+        # return img_output

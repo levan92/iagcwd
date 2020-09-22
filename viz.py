@@ -97,3 +97,8 @@ while True:
         cv2.setTrackbarPos(agcwd_alpha_dimmed_trackbar_name, cv2_winname, int(default_alpha_dimmed*100) )
 
 print(f'Adaptive Gamma avg duration: {total_dur/dur_count:.3f}s')
+print(f'Final Adapative Gamma Params: ')
+print(f"thresh= {gamma_adjuster.threshold}") 
+print(f"exp_in= {gamma_adjuster.exp_in}")
+print(f"agcwd_alpha_bright= {gamma_adjuster.agcwd_alpha_bright}") 
+print(f"agcwd_alpha_dimmed= {gamma_adjuster.agcwd_alpha_dimmed}") 

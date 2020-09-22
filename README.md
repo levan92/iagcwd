@@ -16,6 +16,11 @@ See `run.py` for example
 python3 run.py --input example_images
 ```
 
+For visualisation with adjustable params on the fly
+```
+python3 viz.py example_images/ship_night.jpg
+```
+
 ## Adjustable Params
 
 By default you don't need to define any arguments in the `AdaptiveGamma` class. But you can adjust them if you want:
@@ -32,6 +37,7 @@ See paper for more info on the parameters.
 
 ## What's new in this fork?
 
+- New visualisation script with adjustable params on the fly
 - reorganise folders to make it easier to integrate into other pipelines
 - "objectified" the original code
   - exposed adjustable parameters

@@ -21,6 +21,8 @@ For visualisation with adjustable params on the fly
 python3 viz.py example_images/ship_night.jpg
 ```
 
+![video_demo](docs/adaptive_gamma-720p-fast.gif)
+
 ## Adjustable Params
 
 By default you don't need to define any arguments in the `AdaptiveGamma` class. But you can adjust them if you want:
